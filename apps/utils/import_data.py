@@ -151,6 +151,7 @@ def create_store_objects(csv_data):
     """
 
     store_objects = []
+    csv_data = list(csv_data)
     total_rows = len(csv_data)
 
     for i, row in tqdm(
@@ -189,7 +190,7 @@ def create_business_hours_objects(csv_data):
 
     business_hours_objects = []
     existing_records = {}  # Dictionary to store existing records by (store, day) tuple
-
+    csv_data = list(csv_data)
     total_rows = len(csv_data)
 
     for i, row in tqdm(
@@ -246,7 +247,7 @@ def create_timezone_objects(csv_data):
 
     timezone_objects = []
     store_timezones = {}  # Dictionary to store timezones by store
-
+    csv_data = list(csv_data)
     total_rows = len(csv_data)
 
     for i, row in tqdm(
