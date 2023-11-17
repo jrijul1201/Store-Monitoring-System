@@ -14,6 +14,7 @@ The Store Monitoring System is a Django-based web application that provides moni
     - [Triggering a Report](#triggering-a-report)
     - [Checking Report Status](#checking-report-status)
   - [Setup Script](#setup-script)
+  - [Demo](#demo)
 
 ## Getting Started
 
@@ -115,3 +116,10 @@ Adjust the script as needed for your environment.
 
 
 Make sure to replace `/path/to/your/` with the actual paths to your CSV files in the `.env` file. Additionally, update any other paths or configurations based on your project structure.
+
+## Demo
+
+[Demo Video](https://drive.google.com/file/d/1pD8xZtnPbjTygt0SBbjhPV76QqkzptRl/view?usp=sharing)
+
+Click on the image above to view the demo video.
+
