@@ -40,7 +40,7 @@ Make sure you have the following installed on your system:
    cd Store-Monitoring-System
    ```
 
-3. Set up your `config.env` file with the following format:
+3. Set up your `.env` file with the following format:
 
    ```env
    DEBUG=False
@@ -70,7 +70,7 @@ The application should now be accessible at [http://localhost:8000/](http://loca
 
 ### Configuration
 
-Before running the application, make sure to configure your `config.env` file with the appropriate settings. Adjust the values according to your environment.
+Before running the application, make sure to configure your `.env` file with the appropriate settings. Adjust the values according to your environment.
 
 ### Triggering a Report
 
@@ -114,4 +114,4 @@ chmod +x setup.sh
 Adjust the script as needed for your environment.
 
 
-Make sure to replace `/path/to/your/` with the actual paths to your CSV files in the `config.env` file. Additionally, update any other paths or configurations based on your project structure.
+Make sure to replace `/path/to/your/` with the actual paths to your CSV files in the `.env` file. Additionally, update any other paths or configurations based on your project structure.
