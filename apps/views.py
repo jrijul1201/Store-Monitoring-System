@@ -5,8 +5,8 @@ from rest_framework.response import Response
 
 from .apps import StoremonitoringsystemConfig
 from .utils.csv_generator import generate_csv_and_return_path
-from .utils.report import (create_report, generate_report_async,
-                           get_report_by_id)
+from .utils.report import create_report, generate_report_async, get_report_by_id
+from .utils.is_importing import get_is_importing
 
 
 @api_view(["POST"])
@@ -17,7 +17,7 @@ def trigger_report(request):
     Returns:
         JsonResponse: A JsonResponse indicating the success or failure of triggering the report.
     """
-    if StoremonitoringsystemConfig.get_is_importing_data():
+    if get_is_importing():
         return JsonResponse(
             {"error": "Data is still being loaded, please wait for some time."},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,

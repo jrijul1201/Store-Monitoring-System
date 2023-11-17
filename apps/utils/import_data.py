@@ -8,8 +8,8 @@ from multiprocessing import Process
 from decouple import config
 from tqdm import tqdm
 
-from apps.apps import StoremonitoringsystemConfig
 from apps.models import *
+from .is_importing import set_is_importing
 
 BUSINESS_HOURS_CSV_PATH = config("BUSINESS_HOURS_CSV_PATH")
 STORES_CSV_PATH = config("STORES_CSV_PATH")
@@ -102,6 +102,7 @@ def load_db_from_csv(store_csv_path, business_hours_csv_path, timezone_csv_path)
 
     # Import data from CSV files in parallel using multiple processes
     print("Importing data...")
+    set_is_importing(True)
     start_time = time.time()
 
     clear_database()  # Remove existing data from the database before importing new data
@@ -133,6 +134,7 @@ def load_db_from_csv(store_csv_path, business_hours_csv_path, timezone_csv_path)
 
     end_time = time.time()
     elapsed_time = end_time - start_time
+    set_is_importing(False)
     print(f"Data loaded successfully. Time taken: {elapsed_time:.2f} seconds")
 
 
@@ -278,9 +280,7 @@ def load_data():
 
     """
 
-    StoremonitoringsystemConfig.set_is_importing_data(True)
     load_db_from_csv(STORES_CSV_PATH, BUSINESS_HOURS_CSV_PATH, TIMEZONES_CSV_PATH)
-    StoremonitoringsystemConfig.set_is_importing_data(False)
 
 
 def load_data_after_1_hour():

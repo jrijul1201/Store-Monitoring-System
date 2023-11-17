@@ -45,7 +45,6 @@ class StoreReport:
         self.downtime_last_hour = downtime_last_hour
         self.downtime_last_day = downtime_last_day
         self.downtime_last_week = downtime_last_week
-        self.save()
 
     def serialize(self):
         return {
