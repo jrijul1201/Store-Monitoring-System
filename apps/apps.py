@@ -13,6 +13,9 @@ class StoremonitoringsystemConfig(AppConfig):
 
     def ready(self):
         from .utils.import_data import import_data
+        from .utils.is_importing import set_is_importing
+
+        set_is_importing(False)
 
         if "runserver" in sys.argv:
             import_data()
