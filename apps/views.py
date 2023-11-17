@@ -52,6 +52,11 @@ def get_report(request, report_id):
 
     report = get_report_by_id(report_id)
 
+    if not report:
+        return JsonResponse(
+            {"error": "Report not found"}, status=status.HTTP_404_NOT_FOUND
+        )
+
     if not report.is_completed:
         return JsonResponse({"status": "Running"}, status=status.HTTP_202_ACCEPTED)
 

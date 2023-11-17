@@ -41,17 +41,12 @@ def get_report_by_id(report_id):
         report_id (int): The ID of the Report instance to be retrieved.
 
     Returns:
-        Report: The retrieved Report instance.
-
-    Raises:
-        JsonResponse: If the Report is not found, raise a JsonResponse with a 404 status.
+        Report: The retrieved Report instance if present else None.
     """
     try:
         report = Report.objects.get(id=report_id)
     except Report.DoesNotExist:
-        raise JsonResponse(
-            {"error": "Report not found"}, status=status.HTTP_404_NOT_FOUND
-        )
+        return None
 
     return report
 
