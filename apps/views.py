@@ -43,6 +43,13 @@ def get_report(request, report_id):
     Returns:
         JsonResponse or Response: A JsonResponse indicating the status of the report or a Response containing the CSV path.
     """
+
+    if get_is_importing():
+        return JsonResponse(
+            {"error": "Data is still being loaded, please wait for some time."},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        )
+
     report = get_report_by_id(report_id)
 
     if not report.is_completed:

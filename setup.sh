@@ -12,3 +12,6 @@ pip install -r requirements.txt
 # Apply database migrations
 python manage.py makemigrations
 python manage.py migrate
+
+# Add folder for saving report csv
+mkdir csv_data
